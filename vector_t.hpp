@@ -12,6 +12,7 @@
 
 #include <iostream>
 #include <cassert>
+#include "rational_t.hpp"
 
 using namespace std;
 
@@ -203,7 +204,7 @@ template<class T>
 T
 scal_prod(const vector_t<T>& v, const vector_t<T>& w)
 {
-  // rellenar código
+  
 }
 
 
@@ -211,5 +212,5 @@ scal_prod(const vector_t<T>& v, const vector_t<T>& w)
 double
 scal_prod(const vector_t<rational_t>& v, const vector_t<rational_t>& w)
 {
-  // rellenar código 
+  
 }

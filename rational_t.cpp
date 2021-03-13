@@ -143,8 +143,13 @@ rational_t
 operator+(const rational_t& a, const rational_t& b)
 {
   rational_t add_result;
-  add_result.set_num(a.get_num() + b.get_num());
-  add_result.set_den(a.get_den() + b.get_den());
+  if (a.get_den() == b.get_den()){
+    add_result.set_num(a.get_num() + b.get_num());
+    add_result.set_den(a.get_den());
+  }else {
+    add_result.set_den(a.get_den() * b.get_den());
+    add_result.set_num(a.get_num() * b.get_den() + a.get_den() * b.get_num());
+  }
   return add_result;
 }
 
@@ -154,8 +159,23 @@ rational_t
 operator-(const rational_t& a, const rational_t& b)
 {
   rational_t sub_result;
-  sub_result.set_num(a.get_num() - b.get_num());
-  sub_result.set_den(a.get_den() - b.get_den());
+  if (a.get_den() == b.get_den()){
+    if (b.get_num() > a.get_num()){
+      sub_result.set_den(a.get_den());
+      sub_result.set_num(b.get_num() - a.get_num());
+    }else{
+      sub_result.set_den(a.get_den());
+      sub_result.set_num(a.get_num() - b.get_num());
+    }
+  }else{
+    if (b.get_num() > a.get_num()){
+      sub_result.set_den(a.get_den() * b.get_den());
+      sub_result.set_num(a.get_den() * b.get_num() - a.get_num() * b.get_den());
+    }else{
+      sub_result.set_den(a.get_den() * b.get_den());
+      sub_result.set_num(b.get_den() * a.get_num() - b.get_num() * a.get_den());
+    }
+  }
   return sub_result;
 }
 
@@ -175,10 +195,10 @@ operator*(const rational_t& a, const rational_t& b)
 rational_t
 operator/(const rational_t& a, const rational_t& b)
 {
-  rational_t division_resutl;
-  division_resutl.set_num(a.get_num() / b.get_num());
-  division_resutl.set_den(a.get_den() / b.get_den());
-  return division_resutl;
+  rational_t division_result;
+  division_result.set_num(a.get_num() * b.get_den());
+  division_result.set_den(a.get_den() * b.get_num());
+  return division_result;
 }
 
 
