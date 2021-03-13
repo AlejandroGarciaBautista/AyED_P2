@@ -142,8 +142,10 @@ rational_t::divide(const rational_t& r) const
 rational_t
 operator+(const rational_t& a, const rational_t& b)
 {
-  rational_t add (a.1 + b.1, a.2 + b.2));
-  return add;
+  rational_t add_result;
+  add_result.set_num(a.get_num() + b.get_num());
+  add_result.set_den(a.get_den() + b.get_den());
+  return add_result;
 }
 
 
@@ -151,8 +153,10 @@ operator+(const rational_t& a, const rational_t& b)
 rational_t
 operator-(const rational_t& a, const rational_t& b)
 {
-  rational_t sub (a.1 - b.1, a.2 - b.2);
-  return sub;
+  rational_t sub_result;
+  sub_result.set_num(a.get_num() - b.get_num());
+  sub_result.set_den(a.get_den() - b.get_den());
+  return sub_result;
 }
 
 
@@ -160,8 +164,10 @@ operator-(const rational_t& a, const rational_t& b)
 rational_t
 operator*(const rational_t& a, const rational_t& b)
 {
-  rational_t times (a.1 * b.1, a.2 * b.2);
-  return times;
+  rational_t times_result;
+  times_result.set_num(a.get_num() * b.get_num());
+  times_result.set_den(a.get_den() * b.get_den());
+  return times_result;
 }
 
 
@@ -169,8 +175,10 @@ operator*(const rational_t& a, const rational_t& b)
 rational_t
 operator/(const rational_t& a, const rational_t& b)
 {
-  rational_t divide (a.1 / b.1, a.2 / b.2);
-  return divide;
+  rational_t division_resutl;
+  division_resutl.set_num(a.get_num() / b.get_num());
+  division_resutl.set_den(a.get_den() / b.get_den());
+  return division_resutl;
 }
 
 
