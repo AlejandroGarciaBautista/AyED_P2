@@ -72,4 +72,3 @@ rational_t operator+(const rational_t&, const rational_t&);
 rational_t operator-(const rational_t&, const rational_t&);
 rational_t operator*(const rational_t&, const rational_t&);
 rational_t operator/(const rational_t&, const rational_t&);
-

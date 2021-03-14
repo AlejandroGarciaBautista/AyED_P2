@@ -186,12 +186,17 @@ template<class T>
 void
 matrix_t<T>::multiply(const matrix_t<T>& A, const matrix_t<T>& B)
 {
+  // Comprobamos que se pueden multiplicar.
   assert(A.get_m() == B.get_n());
+  // Redimensionamos.
   resize(A.get_m(), B.get_n());
-  for (int i = 1; i <= get_m(); i++){
-    for (int j = 1; j <= get_n(); j++){
+  // Realizamos la multiplicacion de matrices.
+  // Vamos moviendo la i y la k en el caso de A para multiplicarlo por las 
+  // posiciones que movemos en B(k,j) para despues colorar ese dato en la Matriz C
+  for (int i = 1; i <= get_n(); i++){
+    for (int j = 1; j <= get_m(); j++){
       for (int k = 1; k <= A.get_n(); k++){
-        at(i,j) = at(i, j) + (A.at(i,k) * B.at(k,j));
+        at(i,j) = at(i,j) + (A.at(i,k) * B.at(k,j));
       }
     }
   }

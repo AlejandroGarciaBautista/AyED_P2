@@ -13,8 +13,6 @@
 #include <iostream>
 #include <cassert>
 
-#include "rational_t.hpp"
-
 using namespace std;
 
 template<class T>
@@ -220,9 +218,11 @@ scal_prod(const vector_t<T>& v, const vector_t<T>& w)
 double
 scal_prod(const vector_t<rational_t>& v, const vector_t<rational_t>& w)
 {
-  double counter = 0;
+  double result;
+  double acumulation_results = 0;
   for (int i = 0; i < v.get_size(); i++){
-    counter = counter + (v.get_val(i).value() * w.get_val(i).value());
+    result = (v.get_val(i).value() * w.get_val(i).value());
+    acumulation_results = acumulation_results + result;
   }
-  return counter;
+  return acumulation_results;
 }
